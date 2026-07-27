@@ -4,10 +4,10 @@ API Reference
 Glider Explorer
 ---------------
 
-.. automodule:: glider_explorer
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. .. automodule:: glider_explorer
+..    :members:
+..    :undoc-members:
+..    :show-inheritance:
 
 Utilities
 ---------
@@ -16,8 +16,8 @@ Utilities
    :members:
    :undoc-members:
 
-Initialization
---------------
+.. Initialization
+.. --------------
 
-.. automodule:: initialize
-   :members:
+.. .. automodule:: initialize
+..    :members:
