@@ -13,12 +13,17 @@ author = 'Martin Mohrmann'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon"
+]
 
 templates_path = ['_templates']
 exclude_patterns = []
 
-
+viewcode_follow_imported_members = True
+autodoc_typehints = "signature"
+napoleon_numpy_docstring = True
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
