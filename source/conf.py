@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Glider Dashboard'
-copyright = '2026, Martin Mohrmann'
-author = 'Martin Mohrmann'
+# copyright = '2026, Martin Mohrmann'
+author = 'Voice of the Ocean Foundation'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
