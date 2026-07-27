@@ -10,6 +10,11 @@ project = 'Glider Dashboard'
 # copyright = '2026, Martin Mohrmann'
 author = 'Voice of the Ocean Foundation'
 
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath("../.."))
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 

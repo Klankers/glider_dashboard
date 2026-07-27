@@ -21,4 +21,6 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
+   installation
+   contributing
    api
