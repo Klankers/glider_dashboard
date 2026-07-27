@@ -1,9 +1,6 @@
 API Reference
 =============
 
-API Reference
-=============
-
 Glider Explorer
 ---------------
 
