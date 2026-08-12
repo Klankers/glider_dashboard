@@ -22,5 +22,6 @@ documentation for details.
    :caption: Contents:
 
    installation
+   getting_started
    contributing
    api
