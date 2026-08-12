@@ -1,7 +1,7 @@
 # Glider_explorer
 
 [![GitHub release](https://img.shields.io/github/v/release/Klankers/glider_dashboard)](https://github.com/Klankers/glider_dashboard/releases)
-[![Tests](https://github.com/Klankers/glider_dashboard/actions/workflows/tests.yml/badge.svg)](https://github.com/Klankers/glider_dashboard/actions/workflows/tests.yml)
+[![Tests](https://github.com/Klankers/glider_dashboard/actions/workflows/python-package.yml/badge.svg)](https://github.com/Klankers/glider_dashboard/actions/workflows/python-package.yml)
 
 A python program for visualizing and interacting with large amounts of ocean glider data.
 
