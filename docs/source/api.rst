@@ -1,8 +1,8 @@
 API Reference
 =============
 
-Glider Explorer
----------------
+.. Glider Explorer
+.. ---------------
 
 .. .. automodule:: glider_explorer
 ..    :members:
@@ -16,8 +16,8 @@ Utilities
    :members:
    :undoc-members:
 
-Initialization
---------------
+.. Initialization
+.. --------------
 
-.. automodule:: initialize
-   :members:
+.. .. automodule:: initialize
+..    :members:
