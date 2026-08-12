@@ -34,6 +34,6 @@ napoleon_numpy_docstring = True
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 #   https://sphinx-themes.org/#themes
-html_theme = 'classic'
+html_theme = 'alabaster'
 html_static_path = ['_static']
 html_logo = "../VOTO-symbol-light-grey.png"
