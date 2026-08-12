@@ -21,5 +21,6 @@ sphinx:
 #    install:
 #    - requirements: docs/requirements.txt
 
-conda:
-  environment: environment.yml
+python:
+  install:
+    - requirements: docs/doc_requirements.txt
