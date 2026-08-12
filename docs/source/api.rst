@@ -16,8 +16,8 @@ Utilities
    :members:
    :undoc-members:
 
-.. Initialization
-.. --------------
+Initialization
+--------------
 
-.. .. automodule:: initialize
-..    :members:
+.. automodule:: initialize
+   :members:
