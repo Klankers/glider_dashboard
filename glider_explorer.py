@@ -1965,15 +1965,6 @@ def get_page_name():
     return pn.state.session_args.get("page", [b"home"])[0].decode(("utf8"))
 
 
-def main():
-    global thecontrols
-
-    thecontrols = GDB.create_app_instance()
-
-    page_name = get_page_name()
-    page_func = PAGES[page_name]
-    page_func()
-
-
-if __name__ == "__main__":
-    main()
+page_name = get_page_name()
+page_func = PAGES[page_name]
+page_func()
