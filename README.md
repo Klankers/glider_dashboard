@@ -22,6 +22,6 @@ A bash file is included for simple setup and execution. For a local execution, t
 bash start_glider_dashboard.bash
 ```
 
-[Code](https://github.com/Klankers/glider_dashboard) \|
+[Code](https://github.com/voto-ocean-knowledge/glider_dashboard) \|
 [Issues](https://github.com/voto-ocean-knowledge/glider_dashboard/issues) \|
 [Documentation](https://glider-dashboard.readthedocs.io/en/docs/)
