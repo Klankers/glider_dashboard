@@ -71,6 +71,12 @@ if utils.GDAC_data:
         dsdict[dsid] = pl.scan_parquet(
             os.path.join(utils.cache_location, f"{dsid}.parquet")
         )
+        if "profile_num" in dsdict[dsid].collect_schema().names():
+            # only case to where this case is needed is currently a
+            # VOTO dataset on the IOOS GDAC, having both profile_num and profile_id,
+            # leading to duplicate column name error if unhandled.
+            dsdict[dsid] = dsdict[dsid].drop("profile_num")q
+
         dsdict[dsid] = (
             dsdict[dsid]
             .drop(cs.string())
@@ -113,12 +119,12 @@ def mld_profile(df, variable, thresh, ref_depth, verbose=True):
     if len(df) == 0:
         mld = np.nan
         exception = True
-        message = """no observations found for specified variable in dive {}
-                """.format(divenum)
+        message = f"""no observations found for specified variable in dive {divenum}
+                """
     elif np.nanmin(np.abs(df["depth"] + ref_depth)) > 5:
         exception = True
-        message = """no observations within 5 m of ref_depth for dive {}
-                """.format(divenum)
+        message = f"""no observations within 5 m of ref_depth for dive {divenum}
+                """
         mld = np.nan
     else:
         # not using direction because it is not present at GDAC
@@ -141,8 +147,8 @@ def mld_profile(df, variable, thresh, ref_depth, verbose=True):
         else:
             exception = True
             mld = np.nan
-            message = """threshold criterion never true (all mixed or \
-                shallow profile) for profile {}""".format(divenum)
+            message = f"""threshold criterion never true (all mixed or \
+                shallow profile) for profile {divenum}"""
     if verbose and exception:
         print(message)
     return pl.DataFrame({"mld": [-mld], "time": [ptime]})

@@ -150,7 +150,7 @@ class GliderDashboard(param.Parameterized):
         precedence=1,
     )
 
-    (locals().update(lod.cbar_range_sliders),)  # noqa
+    (locals().update(lod.cbar_range_sliders),)
 
     pick_autorange = param.Boolean(
         default=True,
@@ -402,8 +402,6 @@ class GliderDashboard(param.Parameterized):
         self.annotations.append(text_annotation)
         self.pick_variables = ["oxygen_concentration"]
 
-        return  # self.dynmap*text_annotation
-
     @param.depends("pick_basin", "pick_dsids", "pick_toggle", watch=True)
     def change_basin(self):
         self.startX, self.endX = None, None
@@ -430,7 +428,7 @@ class GliderDashboard(param.Parameterized):
     def location(self, x, y):
         # print(f"Click at {x}, {y}")
         if self.data_in_view is None:
-            return None
+            return
 
         profile_num = (
             self.data_in_view.filter(pl.col("time") > x)
@@ -546,7 +544,7 @@ class GliderDashboard(param.Parameterized):
         # "pick_profiles",
         "pick_display_threshold",
         "pick_show_decoration",  #'pick_startX', 'pick_endX',
-        *list(lod.cbar_range_sliders.keys()),  # noqa
+        *list(lod.cbar_range_sliders.keys()),
         "pick_autorange",
         "pick_TS_color_variable",
         # "pick_show_metadata",
@@ -1028,21 +1026,31 @@ class GliderDashboard(param.Parameterized):
         for datasetid in self.visible_datasets:
             # meta_rows += f"""<tr><td>{datasetid}</td><td><a href="{(lod.allDatasets.loc[datasetid]["metadata"] + ".html")}">link to metadata</a></td></tr>"""
             am = pl.read_csv(lod.allDatasets.loc[datasetid]["metadata"] + ".csv")
-            acknowledgement = (
-                am.filter(pl.col("Attribute Name") == "acknowledgement")
-                .select(pl.col("Value"))
-                .item()
-            )
+            try:
+                acknowledgement = (
+                    am.filter(pl.col("Attribute Name") == "acknowledgement")
+                    .select(pl.col("Value"))
+                    .item()
+                )
+            except:
+                # IOOS GDAC do not have an acknowledgement column
+                acknowledgement = ""
+
             institution = (
                 am.filter(pl.col("Attribute Name") == "institution")
                 .select(pl.col("Value"))
                 .item()
             )
-            creator_url = (
-                am.filter(pl.col("Attribute Name") == "creator_url")
-                .select(pl.col("Value"))
-                .item()
-            )
+            try:
+                creator_url = (
+                    am.filter(pl.col("Attribute Name") == "creator_url")
+                    .select(pl.col("Value"))
+                    .item()
+                )
+            except:
+                # IOOS GDAC do not have an creator_url column
+                creator_url = ""
+
             meta_rows += f"""<tr><td>{datasetid}</td><td><a href="{(lod.allDatasets.loc[datasetid]["metadata"] + ".html")}">link to metadata</a></td><td><a href={creator_url}>{institution}</a></td><td>{acknowledgement}</td></tr>"""
         table3 = f"""<b>Datasets in Current Temporal View</b>
 <table><tr><th>DatasetID</th><th>Parameters</th><th>Data creator</th><th>Data reference</th></tr>
@@ -1490,8 +1498,8 @@ class GliderDashboard(param.Parameterized):
         si = np.linspace(1, xdim - 1, int(xdim)) * 0.1 + smin
 
         # Loop to fill in grid with densities
-        for j in range(0, int(ydim)):
-            for i in range(0, int(xdim)):
+        for j in range(int(ydim)):
+            for i in range(int(xdim)):
                 dens[j, i] = gsw.rho(si[i], ti[j], 0)
 
         # Substract 1000 to convert to sigma-t
@@ -1962,7 +1970,7 @@ PAGES = {"home": home, "page1": page1}
 
 
 def get_page_name():
-    return pn.state.session_args.get("page", [b"home"])[0].decode(("utf8"))
+    return pn.state.session_args.get("page", [b"home"])[0].decode("utf8")
 
 
 page_name = get_page_name()
