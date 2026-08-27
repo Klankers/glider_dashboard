@@ -75,7 +75,7 @@ if utils.GDAC_data:
             # only case to where this case is needed is currently a
             # VOTO dataset on the IOOS GDAC, having both profile_num and profile_id,
             # leading to duplicate column name error if unhandled.
-            dsdict[dsid] = dsdict[dsid].drop("profile_num")q
+            dsdict[dsid] = dsdict[dsid].drop("profile_num")
 
         dsdict[dsid] = (
             dsdict[dsid]
