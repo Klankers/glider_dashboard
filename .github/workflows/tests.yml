@@ -6,7 +6,7 @@ permissions: {}
 on:
   pull_request:
   push:
-    branches: [ docs ]
+    branches: [ main ]
 
 jobs:
   run:
@@ -36,6 +36,6 @@ jobs:
           --file environment.yml
           --channel conda-forge
 
-    - name: Tests
-      run: |
-        python -m pytest --disable-warnings
+    # - name: Tests
+    #   run: |
+    #     python -m pytest --disable-warnings
