@@ -1,13 +1,13 @@
 API Reference
 =============
 
-.. Glider Explorer
-.. ---------------
+Glider Explorer
+---------------
 
-.. .. automodule:: glider_explorer
-..    :members:
-..    :undoc-members:
-..    :show-inheritance:
+.. automodule:: glider_explorer
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 Utilities
 ---------
